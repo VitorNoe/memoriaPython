@@ -6,14 +6,14 @@ class Stack:
     def push(self,item):
         if len(self.stack) < self.max_size:
             self.stack.append(item)
-            print(f"Elemento {item} adicionado à stack.")
+            print(f"Elemento {item} adicionado à pilha.")
         else:
             print("Erro: Pilha cheia. Não é possivel adicionar mais elementos.")
             
     def pop(self):
         if not self.is_empty():
             removed_item = self.stack.pop()
-            print(f"Elemento {removed_item} removido da stack.")
+            print(f"Elemento {removed_item} removido da pilha.")
             return removed_item
         else:
             print("Erro: Pilha vazia. Não é possivel remover elementos.")
