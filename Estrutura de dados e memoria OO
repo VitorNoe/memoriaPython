@@ -1,0 +1,64 @@
+class Pilha:
+    def __init__(self, max_size):
+        self.pilha = []
+        self.max_size = max_size
+        
+    def push(self,item):
+        if len(self.pilha) < self.max_size:
+            self.pilha.append(item)
+            print(f"Elemento {item} adicionado à pilha.")
+        else:
+            print("Erro: Pilha cheia. Não é possivel adicionar mais elementos.")
+            
+    def pop(self):
+        if not self.is_empty():
+            removed_item = self.pilha.pop()
+            print(f"Elemento {removed_item} removido da pilha.")
+            return removed_item
+        else:
+            print("Erro: Pilha vazia. Não é possivel remover elementos.")
+            return None
+        
+    def peek(self):
+        if not self.is_empty():
+            print(f"Elemento no topo da pilha: {self.pilha[-1]}")
+            return self.pilha[-1]
+        else:
+            print("Erro: Pilha vazia. Não há elementos no topo.")
+            return None
+        
+    def is_empty(self):
+        return len(self.pilha) == 0
+    
+    def __str__(self):
+        return f"Pilha atual: {self.pilha}"
+
+def main():
+    max_size = int(input("Defina o tamanho máximo da pilha: "))
+    pilha = Pilha(max_size)
+    
+    while True:
+        print("\nEscolha uma operaçação:")
+        print("1. push")
+        print("2. pop")
+        print("3. peek")
+        print("4. sair")
+        choice = input("Digite o número da operação: ")
+        
+        if choice == "1":
+            item = input("Digite o elemento a ser adicionado: ")
+            pilha.push(item)
+        elif choice == "2":
+            pilha.pop()
+        elif choice == "3":
+            pilha.peek()
+        elif choice == "4":
+            print("Saindo...")
+            break
+        else:
+            print("Escolha inválida. Tente novamente.")
+            
+        print(pilha)
+        
+if __name__ == "__main__":
+    main()
