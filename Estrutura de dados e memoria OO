@@ -1,19 +1,19 @@
-class Pilha:
+class Stack:
     def __init__(self, max_size):
-        self.pilha = []
+        self.stack = []
         self.max_size = max_size
         
     def push(self,item):
-        if len(self.pilha) < self.max_size:
-            self.pilha.append(item)
-            print(f"Elemento {item} adicionado à pilha.")
+        if len(self.stack) < self.max_size:
+            self.stack.append(item)
+            print(f"Elemento {item} adicionado à stack.")
         else:
             print("Erro: Pilha cheia. Não é possivel adicionar mais elementos.")
             
     def pop(self):
         if not self.is_empty():
-            removed_item = self.pilha.pop()
-            print(f"Elemento {removed_item} removido da pilha.")
+            removed_item = self.stack.pop()
+            print(f"Elemento {removed_item} removido da stack.")
             return removed_item
         else:
             print("Erro: Pilha vazia. Não é possivel remover elementos.")
@@ -21,21 +21,21 @@ class Pilha:
         
     def peek(self):
         if not self.is_empty():
-            print(f"Elemento no topo da pilha: {self.pilha[-1]}")
-            return self.pilha[-1]
+            print(f"Elemento no topo da stack: {self.stack[-1]}")
+            return self.stack[-1]
         else:
             print("Erro: Pilha vazia. Não há elementos no topo.")
             return None
         
     def is_empty(self):
-        return len(self.pilha) == 0
+        return len(self.stack) == 0
     
     def __str__(self):
-        return f"Pilha atual: {self.pilha}"
+        return f"Pilha atual: {self.stack}"
 
 def main():
-    max_size = int(input("Defina o tamanho máximo da pilha: "))
-    pilha = Pilha(max_size)
+    max_size = int(input("Defina o tamanho máximo da stack: "))
+    stack = Stack(max_size)
     
     while True:
         print("\nEscolha uma operaçação:")
@@ -47,18 +47,18 @@ def main():
         
         if choice == "1":
             item = input("Digite o elemento a ser adicionado: ")
-            pilha.push(item)
+            stack.push(item)
         elif choice == "2":
-            pilha.pop()
+            stack.pop()
         elif choice == "3":
-            pilha.peek()
+            stack.peek()
         elif choice == "4":
             print("Saindo...")
             break
         else:
             print("Escolha inválida. Tente novamente.")
             
-        print(pilha)
+        print(stack)
         
 if __name__ == "__main__":
     main()
