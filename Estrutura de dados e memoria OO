@@ -34,7 +34,7 @@ class Stack:
         return f"Pilha atual: {self.stack}"
 
 def main():
-    max_size = int(input("Defina o tamanho máximo da stack: "))
+    max_size = int(input("Defina o tamanho máximo da pilha: "))
     stack = Stack(max_size)
     
     while True:
